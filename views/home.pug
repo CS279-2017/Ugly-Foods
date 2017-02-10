@@ -1,27 +1,42 @@
 extends layout
 
+mixin listerate(textArray)
+  - let x = 0
+  for text in textArray
+    .col-sm-12
+      h2
+        //button(data-toggle="collapse" data-target="#collapse#{x}") #{text}
+      //p(id="collapse#{x}") lorem ipsum blah blah blah
+    - x++
+
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
+  - let questions = ["Why would I buy ugly foods?", "Do they taste different?", "How does it work?", "What fruits and vegetables can I get?","When will ugly foods come to my city?"];
+  .row
+    .col-sm-12
+      .media
+        .media-left
+          img.media-object(src="/images/logo.png", style="width:200px")
+        .media-body
+          h4 Hi, we are Ugly Foods
+          h5 Saving the world, one carrot at a time
+          button.btn.btn-primary(type="button") Get your free delivery
+
+  h1 Ugly Foods
+  p.lead#motto Saving the world, one carrot at a time.
   hr
   .row
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
+    .col-sm-12
+  .panel-group#accordion
+    .panel.panel-default
+      .panel-heading
+        h4.panel-title
+          a(data-toggle="collapse" data-parent="#accordion" href="#collapse1") Collapsible Group 1
+      .panel-collapse.collapse#collapse1
+        .panel-body Lorem ipsum dolor sit amet, consectetur adipisicing elit
+    .panel.panel-default
+      .panel-heading
+        h4.panel-title
+          a(data-toggle="collapse" data-parent="#accordion" href="#collapse2") Collapsible Group 2
+      .panel-collapse.collapse#collapse2
+        .panel-body Lorem ipsum dolor sit amet, consectetur adipisicing elit
+
