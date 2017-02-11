@@ -51,3 +51,15 @@
     }
   }
 }
+
+// Fonts
+// -------------------------
+
+@font-face {
+  font-family: quicksand;
+  src: url("../fonts/Quicksand-Regular.otf");
+}
+
+* {
+  font-family: quicksand;
+}
