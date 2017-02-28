@@ -14,6 +14,7 @@ exports.index = (req, res, next) => {
  * Update profile information.
  */
 exports.postOrder = (req, res, next) => {
-    req.flash('success', { msg: 'Placeholder for placing order.' });
-    res.redirect('/');
+    //req.flash('success', { msg: req.body.box });
+    //res.render('home', {title: 'Finish your order', box: req.body.box});
+    res.redirect('/?order='+req.body.box)
 };
