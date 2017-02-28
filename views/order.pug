@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    .page-header
+        h3 Choose Your Box
+
+    form.form-horizontal(action='/order', method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        .form-group
+            label.radio.col-sm-offset-1.col-sm-3
+                input(type='radio', checked=true, name='box', value='vegetable', data-toggle='radio')
+                span Fruit box - $12
+            label.radio.col-sm-3
+                input(type='radio', name='box', value='fruit', data-toggle='radio')
+                span Vegetable box - $10
+            label.radio.col-sm-3
+                input(type='radio', name='box', value='mixed', data-toggle='radio')
+                span Mixed box - $15
+        .form-group
+            .col-sm-offset-4.col-sm-3
+                button.btn.btn.btn-primary(type='submit')
+                    i.fa.fa-usd
+                    | Proceed to Payment
