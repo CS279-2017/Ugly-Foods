@@ -514,6 +514,8 @@ exports.isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
+  //WARNING - THIS LINE PUT IN BY ALEC - TAKE OUT IF SCREWY
+  req.flash('errors', { msg: 'You must log in to view this page.' });
   res.redirect('/login');
 };
 
