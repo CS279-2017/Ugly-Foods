@@ -16,5 +16,5 @@ exports.index = (req, res, next) => {
 exports.postOrder = (req, res, next) => {
     //req.flash('success', { msg: req.body.box });
     //res.render('home', {title: 'Finish your order', box: req.body.box});
-    res.redirect('/?order='+req.body.box)
+    res.redirect('/?order='+req.body.box);
 };
