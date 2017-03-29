@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   .page-header
-    h3 Sign up
+    h3 Farmer Sign up - NOT FOR USE CURRENTLY
   form.form-horizontal(id='signup-form', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group
@@ -28,7 +28,7 @@ block content
     .form-group
       label.col-sm-3.control-label(for='farmerCheck') Check if you are a supplier
       .col-sm-7
-        input.checkbox(type='checkbox', name='farmerCheck', id='farmerCheck' style="padding: 0")
+        input.form-control(type='password', name='farmerCheck', id='farmerCheck')
     .form-group
       .col-sm-offset-3.col-sm-7
         button.btn.btn-success(type='submit')

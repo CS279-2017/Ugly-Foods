@@ -70,10 +70,24 @@ exports.getSignup = (req, res) => {
 };
 
 /**
+ * GET /farmer_signup
+ * Farmer Signup page.
+ */
+exports.getFarmerSignup = (req, res) => {
+    if (req.user) {
+        return res.redirect('/');
+    }
+    res.render('account/farmer_signup', {
+        title: 'Create Farmer Account'
+    });
+};
+
+/**
  * POST /signup
  * Create a new local account.
  */
 exports.postSignup = (req, res, next) => {
+  console.log('user controller: post signup')
   req.assert('email', 'Email is not valid').isEmail();
   req.assert('password', 'Password must be at least 4 characters long').len(4);
   req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
@@ -89,8 +103,8 @@ exports.postSignup = (req, res, next) => {
   const user = new User({
     email: req.body.email,
     password: req.body.password,
-    profile: {name: req.body.name, location: req.body.location}
-
+    profile: {name: req.body.name, location: req.body.location},
+    farmer: req.body.farmerCheck
   });
 
   User.findOne({ email: req.body.email }, (err, existingUser) => {

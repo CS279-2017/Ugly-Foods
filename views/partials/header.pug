@@ -14,6 +14,9 @@
           a(href='/') Home
         li(class=(title == 'Order') ? 'active' : undefined)
           a(href='/order') Order
+        if user&&user.farmer
+          li(class=(title == 'Register Produce') ? 'active' : undefined)
+            a(href='/register_produce') Register Produce
         li(class=(title == 'Stripe') ? 'active' : undefined)
           a(href='/stripe') Stripe
         li(class=(title == 'Contact') ? 'active' : undefined)

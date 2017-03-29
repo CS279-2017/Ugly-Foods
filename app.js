@@ -33,6 +33,7 @@ const userController = require('./controllers/user');
 const stripeController = require('./controllers/stripe');
 const contactController = require('./controllers/contact');
 const orderController = require('./controllers/order');
+const registerProduceController = require('./controllers/register_produce')
 /**
  * API keys and Passport configuration.
  */
@@ -84,7 +85,10 @@ app.use(flash());
 app.use((req, res, next) => {
   if (req.path === '/api/upload') {
     next();
-  } else {
+  } else if(req.path == '/register_produce') {
+    next();
+  }
+  else {
     lusca.csrf()(req, res, next);
   }
 });
@@ -109,6 +113,8 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
+//take this out if it breaks something
+app.locals.basedir = app.get('views');
 
 /**
  * Primary app routes.
@@ -116,6 +122,8 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 app.get('/', homeController.index);
 app.get('/order', passportConfig.isAuthenticated, orderController.index);
 app.post('/order', orderController.postOrder);
+app.get('/register_produce', registerProduceController.index)
+app.post('/register_produce', registerProduceController.postProduce)
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);
@@ -124,7 +132,9 @@ app.post('/forgot', userController.postForgot);
 app.get('/reset/:token', userController.getReset);
 app.post('/reset/:token', userController.postReset);
 app.get('/signup', userController.getSignup);
+app.get('/signup_farmer', userController.getFarmerSignup);
 app.post('/signup', userController.postSignup);
+app.post('/signup_farmer', userController.postSignup);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
