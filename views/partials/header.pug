@@ -17,12 +17,7 @@
         if user&&user.farmer
           li(class=(title == 'Register Produce') ? 'active' : undefined)
             a(href='/register_produce') Register Produce
-        li(class=(title == 'Stripe') ? 'active' : undefined)
-          a(href='/stripe') Stripe
-        li(class=(title == 'Contact') ? 'active' : undefined)
-          a(href='/contact') Contact
-        li
-          a(href='/status') Status
+
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=(title == 'Login') ? 'active' : undefined)
