@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const produceSchema = new mongoose.Schema({
   produce: String,
   units: Number,
-  unitPrice: Number
+  unitPrice: Number,
+  picture: String
 }, { timestamps: true });
 
 const Produce = mongoose.model('Produce', produceSchema);

@@ -39,7 +39,8 @@ exports.postProduce = (req, res, next) => {
     const produceInstance = new Produce({
         produce: req.body.produce,
         units: req.body.units,
-        UnitPrice: req.body.unitPrice
+        UnitPrice: req.body.unitPrice,
+        picture: req.body.picture
     });
     //if(req.body.farmerCheck)
     //  req.flash('success', {msg: "Signed up as farmer"})
