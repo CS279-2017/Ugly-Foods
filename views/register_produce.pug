@@ -19,6 +19,10 @@ block content
             .col-sm-7
                 input.form-control(type='text', name='unitPrice', id='unitPrice', required)
         .form-group
+            label.col-sm-3.control-label(for='picture') Picture
+            .col-sm-7
+                input.form-button(type='file', name='picture', id='picture')
+        .form-group
             .col-sm-offset-3.col-sm-7
                 - var myFunc = function () {console.log('hey there')}
                 button.btn.btn-success(type='submit')

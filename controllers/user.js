@@ -99,7 +99,7 @@ exports.postSignup = (req, res, next) => {
     req.flash('errors', errors);
     return res.redirect('/signup');
   }
-
+  console.log('no line on the horizon')
   const user = new User({
     email: req.body.email,
     password: req.body.password,
@@ -113,6 +113,8 @@ exports.postSignup = (req, res, next) => {
       req.flash('errors', { msg: 'Account with that email address already exists.' });
       return res.redirect('/signup');
     }
+      console.log('user: ')
+      console.log(user)
     user.save((err) => {
       if (err) { return next(err); }
       req.logIn(user, (err) => {

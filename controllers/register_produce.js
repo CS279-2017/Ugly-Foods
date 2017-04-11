@@ -3,6 +3,7 @@
  */
 //get order page
 const Produce = require('../models/Produce');
+const multer = require ('multer')
 
 exports.index = (req, res, next) => {
 
