@@ -1,0 +1,32 @@
+extends layout
+
+
+block content
+    - if (user.farmer)
+        .page-header
+            h3 Register Produce
+        form.form-horizontal(id='produce-signup-form' method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            .form-group
+                label.col-sm-3.control-label(for='produce') Name of Produce
+                .col-sm-7
+                    input.form-control(type='text', name='produce', id='produce', required)
+            .form-group
+                label.col-sm-3.control-label(for='units') Number of Units
+                .col-sm-7
+                    input.form-control(type='text', name='units', id='units', required)
+            .form-group
+                label.col-sm-3.control-label(for='unitPrice') Unit Price ($)
+                .col-sm-7
+                    input.form-control(type='text', name='unitPrice', id='unitPrice', required)
+            .form-group
+                label.col-sm-3.control-label(for='picture') Picture
+                .col-sm-7
+                    input.form-button(type='file', name='picture', id='picture')
+            .form-group
+                .col-sm-offset-3.col-sm-7
+                    - var myFunc = function () {console.log('hey there')}
+                    button.btn.btn-success(type='submit')
+                        i.fa.fa-upload
+                        | Register
+            .col-sm-offset-3.col-sm-7#errorMsg

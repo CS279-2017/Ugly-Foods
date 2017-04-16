@@ -9,7 +9,8 @@ exports.index = (req, res, next) => {
     });
 };
 
-/**
+
+/*
  * POST /account/profile
  * Update profile information.
  */

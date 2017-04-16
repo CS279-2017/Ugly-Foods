@@ -14,12 +14,10 @@
           a(href='/') Home
         li(class=(title == 'Order') ? 'active' : undefined)
           a(href='/order') Order
-        li(class=(title == 'Stripe') ? 'active' : undefined)
-          a(href='/stripe') Stripe
-        li(class=(title == 'Contact') ? 'active' : undefined)
-          a(href='/contact') Contact
-        li
-          a(href='/status') Status
+        if user&&user.farmer
+          li(class=(title == 'Register Produce') ? 'active' : undefined)
+            a(href='/register_produce') Register Produce
+
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=(title == 'Login') ? 'active' : undefined)

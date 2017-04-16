@@ -8909,6 +8909,9 @@ button.close {
 * {
   font-family: quicksand; }
 
+.orderlist {
+  display: table; }
+
 html {
   position: relative;
   min-height: 100%; }
