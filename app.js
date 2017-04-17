@@ -31,7 +31,6 @@ dotenv.load({ path: '.env.example' });
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const stripeController = require('./controllers/stripe');
-const contactController = require('./controllers/contact');
 const orderController = require('./controllers/order');
 const registerProduceController = require('./controllers/register_produce')
 /**
@@ -135,8 +134,6 @@ app.get('/signup', userController.getSignup);
 app.get('/signup_farmer', userController.getFarmerSignup);
 app.post('/signup', userController.postSignup);
 app.post('/signup_farmer', userController.postSignup);
-app.get('/contact', contactController.getContact);
-app.post('/contact', contactController.postContact);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
 app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
@@ -146,8 +143,8 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 /**
  * Stripe routes.
  */
-app.get('/stripe', stripeController.getStripe);
-app.post('/stripe', stripeController.postStripe);
+app.get('/payment', stripeController.getStripe);
+app.post('/payment', stripeController.postStripe);
 
 /**
  * OAuth authentication routes. (Sign in)
