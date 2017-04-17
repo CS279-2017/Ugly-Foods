@@ -150,6 +150,14 @@ app.get('/stripe', stripeController.getStripe);
 app.post('/stripe', stripeController.postStripe);
 
 /**
+ * OAuth authentication routes. (Sign in)
+ */
+app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'public_profile'] }));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), (req, res) => {
+    res.redirect(req.session.returnTo || '/');
+});
+
+/**
  * Error Handler.
  */
 app.use(errorHandler());

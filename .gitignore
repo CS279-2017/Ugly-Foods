@@ -29,10 +29,3 @@ bower_components
 # OS metadata
 .DS_Store
 Thumbs.db
-
-# VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
